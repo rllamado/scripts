@@ -1,0 +1,26 @@
+#!/bin/sh
+#
+# Run qt application without having to navigate through project files
+
+readonly PROJ_NAME=${PWD##*/}
+APP_PATH="./$PROJ_NAME.app/Contents/MacOS/"
+
+usage(){
+    cat << EOF
+runqt []
+EOF
+}
+
+print_error(){
+  cat << EOF
+Not in a qt project directory...
+EOF
+}
+
+if [ -d "$APP_PATH" ]; then
+  echo "Running $PROJ_NAME..."
+  `"$APP_PATH/$PROJ_NAME"`
+else
+  usage
+  print_error
+fi
