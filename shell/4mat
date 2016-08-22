@@ -1,0 +1,5 @@
+#!/bin/sh
+
+## Wrapper script for GNU indent tool - used to format c code according to my preference
+
+echo 'plz'
